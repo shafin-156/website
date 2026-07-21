@@ -1,0 +1,21 @@
+ErrorDocument 400 https://lmsbist.free.nf/
+ErrorDocument 401 https://lmsbist.free.nf/
+ErrorDocument 403 https://lmsbist.free.nf/
+ErrorDocument 404 https://lmsbist.free.nf/
+ErrorDocument 500 https://lmsbist.free.nf/
+ErrorDocument 503 https://lmsbist.free.nf/
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# 1. Force HTTPS
+# If the connection is not currently HTTPS, redirect it.
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Block Burp Suite (based on default User-Agent)
+# If the User-Agent contains "Burp" or "PortSwigger", forbid access (403).
+RewriteCond %{HTTP_USER_AGENT} (Burp|PortSwigger) [NC]
+RewriteRule ^ - [F,L]
+
+</IfModule>

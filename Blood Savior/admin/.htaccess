@@ -1,0 +1,16 @@
+# 1. Disable Directory Listing
+# This prevents users from seeing a list of files if index.php is missing.
+Options -Indexes
+
+# 2. Turn on the Rewrite Engine
+# This enables the module that can redirect URLs.
+RewriteEngine On
+
+# 3. Handle Direct File/Directory Requests
+# This rule is crucial for security and clean URLs.
+# It checks if the requested URL is NOT an existing file AND NOT an existing directory.
+# If both are true (it's a 'virtual' path, like /products/123), 
+# it silently forwards the request to index.php for processing.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]

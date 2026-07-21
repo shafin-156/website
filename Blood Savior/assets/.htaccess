@@ -1,0 +1,14 @@
+# 1. Turn on the rewriting engine
+RewriteEngine On
+
+# 2. Check the Referer header to see if it contains the full domain name
+# It checks for HTTP or HTTPS and optionally any subdomain (like www.)
+SetEnvIfNoCase Referer "^https?://([^/]+\.)?bloodsavior\.free\.nf" local_referer
+
+# 3. Deny all requests by default
+Order Deny,Allow
+Deny from all
+
+# 4. Allow requests only if they have the 'local_referer' variable set
+# (meaning the request came from your domain)
+Allow from env=local_referer

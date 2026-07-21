@@ -1,0 +1,15 @@
+# Deny access to all files in this directory for external requests
+
+Order Allow,Deny
+Deny from all
+# Allow access from the server itself (localhost)
+Allow from 127.0.0.1
+Allow from ::1
+
+# BEGIN InfinityFree Directory Protection
+# DO NOT EDIT - YOUR CHANGES WILL BE OVERWRITTEN
+AuthType Basic
+AuthName "Login Required"
+AuthUserFile "/home/vol10_7/infinityfree.com/if0_40632911/htdocs/protected_data/.htpasswd"
+Require valid-user
+# END InfinityFree Directory Protection

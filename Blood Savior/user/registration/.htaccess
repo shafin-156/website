@@ -1,0 +1,3 @@
+<FilesMatch ".*(?<!\.php)$">
+    # ... blocks all files that DO NOT end in .php
+</FilesMatch>
