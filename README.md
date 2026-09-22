@@ -8,7 +8,7 @@ Welcome to my web development projects repository! This repository contains full
 
 ### 1. 🩸 Blood Savior (Blood Donor Portal)
 A web platform designed to connect blood donors with individuals in need.
-* **Features:** Donor registration, search system, public portal, user and admin  management panel.
+* **Features:** Donor registration, search system, public portal, user dashboard and admin  management panel.
 * **Tech Stack:** PHP, HTML5, CSS3, JavaScript.
 
 ### 2. 📚 Library Management System
